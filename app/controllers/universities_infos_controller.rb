@@ -4,7 +4,6 @@ class UniversitiesInfosController < ApplicationController
   before_action :check_canadian_universities, :check_united_states_universities
 
   def index
-    p @canadian_universities
     respond_to do |format|
       format.html
     end
@@ -27,7 +26,7 @@ class UniversitiesInfosController < ApplicationController
         parsed_response = JSON.parse(res.body)
           parsed_response.map do |u|
             UniversitiesInfo.create(
-              web_page: u["web_page"],
+              web_page: u["web_pages"],
               country: u["country"],
               domain: u["domains"],
               name: u["name"],
@@ -54,7 +53,7 @@ class UniversitiesInfosController < ApplicationController
         parsed_response = JSON.parse(res.body)
           parsed_response.map do |u|
             UniversitiesInfo.create(
-              web_page: u["web_page"],
+              web_page: u["web_pages"],
               country: u["country"],
               domain: u["domains"],
               name: u["name"],

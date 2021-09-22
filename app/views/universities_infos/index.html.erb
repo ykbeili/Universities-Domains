@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-6">
+      <% if @canadian_universities.blank? %>
+        <h2>There is no Canadian universities</h2>
+      <% else %>
+      <h3>List of universities in Canada </h3>
+       <% @canadian_universities.each do |u| %>
+        <div class="card my-3">
+          <div class="card-body">
+            <h5 class="card-title">Name: <%= u.name %></h5>
+            <% if u.domain.count > 1 %>
+              <ul class="list-group text-danger"><h5 class="font-weight-bold">Domains:</h5>
+              <% u.domain.each do |d| %>
+                <li class="list-group-item border-0 p-1"><%= d %></li>
+              </ul>
+              <% end %>
+            <% else %>
+              <h6 class="card-subtitle mb-2 text-muted">Domain: <%= u.domain[0] %></h6>
+            <% end %>
+            <% if u.web_page.count > 1 %>
+                <ul class="list-group"><h5>Web Pages:</h5>
+                <% u.web_page.each do |wp| %>
+                  <li class="list-group-item border-0 p-1"><%= wp %></li>
+                </ul>
+              <% end %>
+            <% else %>
+              <h6 class="card-subtitle mb-2 text-muted mt-1">Web Page: <%= u.domain[0] %></h6>
+            <% end %>
+          </div>
+        </div>
+       <% end %>
+      <% end %>
+    </div>
+    <div class="col-6">
+    <% if @united_states_universities.blank? %>
+      <h2>There is no universities in United States</h2>
+    <% else %>
+      <h3>List of universities in United States</h3>
+      <% @united_states_universities.each do |u| %>
+        <div class="card my-3">
+          <div class="card-body">
+            <h5 class="card-title">Name: <%= u.name %></h5>
+            <% if u.domain.count > 1 %>
+              <ul class="list-group text-danger"><h5 class="font-weight-bold">Domains:</h5>
+              <% u.domain.each do |d| %>
+                <li class="list-group-item border-0 p-1"><%= d %></li>
+              </ul>
+              <% end %>
+            <% else %>
+              <h6 class="card-subtitle mb-2 text-muted">Domain: <%= u.domain[0] %></h6>
+            <% end %>
+            <% if u.web_page.count > 1 %>
+              <ul class="list-group"><h5>Web Pages:</h5>
+              <% u.web_page.each do |wp| %>
+                <li class="list-group-item border-0 p-1"><%= wp %></li>
+              </ul>
+              <% end %>
+            <% else %>
+              <h6 class="card-subtitle mb-2 text-muted mt-1">Web Page: <%= u.domain[0] %></h6>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
