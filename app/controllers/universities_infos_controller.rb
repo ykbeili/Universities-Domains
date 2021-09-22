@@ -4,7 +4,8 @@ class UniversitiesInfosController < ApplicationController
   before_action :check_canadian_universities, :check_united_states_universities
 
   def index
-    respond_to |format| do
+    p @canadian_universities
+    respond_to do |format|
       format.html
     end
   end
